@@ -1,11 +1,10 @@
 import { Search } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { ShoppingCartOutlined } from '@material-ui/icons';
-import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    height: 60px;
+    height: 100px;
 `;
 
 const Wrapper = styled.div`
@@ -14,7 +13,6 @@ const Wrapper = styled.div`
     display: flex; 
     align-items: center;
 `;
-
 
 const Left = styled.div`
     flex: 1;
