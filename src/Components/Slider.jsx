@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { ArrowLeftOutlined } from "@material-ui/icons";
 import { ArrowRightOutlined } from "@material-ui/icons";
+import { useState } from "react";
+import { sliderItems } from "../data";
 
 const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
     position: relative; 
+    overflow: hidden;
 `;
 
 const Arrow = styled.div`
@@ -25,10 +28,14 @@ const Arrow = styled.div`
     margin: auto;
     cursor: pointer;
     opacity: 0.75;
+    z-index: 2;
 `;
 
 const Wrapper = styled.div`
     height: 100%;
+    display: flex;
+    transform: translateX(${props => props.slideIndex * -100}vw);
+    transition: all 1.5s ease;
 `;
 
 const Slide = styled.div`
@@ -36,6 +43,7 @@ const Slide = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    background-color: #${props => props.bg}
 `;
 
 const ImageContainer = styled.div`
@@ -53,29 +61,51 @@ const InfoContainer = styled.div`
     padding: 50px;
 `;
 
-const Title = styled.h1``
-const Desc = styled.p``
-const Button = styled.button``
+const Title = styled.h1`
+    font-size: 70px;
+`;
+const Desc = styled.p`
+    margin: 50px 0px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 3px;
+`;
+const Button = styled.button`
+    padding: 10px;
+    font-size: 20px;
+    background-color: tranparent;
+    cursor: pointer;
+`;
 
 const Slider = () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+    const handleClick = (direction) => {
+        if(direction === "left"){
+            setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2);
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0);
+        }
+    };
   return (
     <Container>
-        <Arrow direction="left">
+        <Arrow direction="left" onClick={() => handleClick("left")}>
             <ArrowLeftOutlined />
         </Arrow>
-        <Wrapper>
-            <Slide>
-            <ImageContainer>
-                <Image src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80" />
-            </ImageContainer>
-            <InfoContainer>
-                <Title>SUMMER SAL</Title>
-                <Desc>DON'T COMPROMISE ON STYLE!!! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                <Button>SHOW NOW</Button>
-            </InfoContainer>
-            </Slide>
+        <Wrapper slideIndex={slideIndex}>
+            {sliderItems.map((item) => (
+                <Slide bg={item.bg}>
+                <ImageContainer>
+                    <Image src={item.img} />
+                </ImageContainer>
+                <InfoContainer>
+                    <Title>{item.title}</Title>
+                    <Desc>{item.desc}</Desc>
+                    <Button>SHOW NOW</Button>
+                </InfoContainer>
+                </Slide>
+            ))}
         </Wrapper>
-        <Arrow direction="right">
+        <Arrow direction="right" onClick={() => handleClick("right")}>
             <ArrowRightOutlined />
         </Arrow>
     </Container>
