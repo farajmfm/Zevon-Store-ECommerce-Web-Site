@@ -37,7 +37,7 @@ export const categories = [
 
     {
         id: 2,
-        img: "https://images.pexels.com/photos/6598457/pexels-photo-6598457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        img: "https://images.pexels.com/photos/3124331/pexels-photo-3124331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         title: "LOUNGEWEAR LOVE",
     },
 
