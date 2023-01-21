@@ -1,7 +1,7 @@
 import { Search } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { ShoppingCartOutlined } from '@material-ui/icons';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Container = styled.div`
     height: 100px;

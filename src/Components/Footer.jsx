@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import React from 'react'
+import styled from 'styled-components';
+import React from 'react';
 import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from '@material-ui/icons';
 
 const Container = styled.div`
@@ -33,6 +33,7 @@ const SocialIcon = styled.div`
    align-items: center;
    justify-content: center;
    margin-right: 20px;
+   cursor: pointer;
 `;
 
 const Center = styled.div`

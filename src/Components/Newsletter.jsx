@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { Send } from '@material-ui/icons'
-import React from 'react'
+import styled from 'styled-components';
+import { Send } from '@material-ui/icons';
+import React from 'react';
 
 const Container = styled.div`
     height: 60vh;
