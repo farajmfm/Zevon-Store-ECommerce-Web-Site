@@ -6,7 +6,9 @@ import Newsletter from '../Components/Newsletter';
 import Footer from '../Components/Footer';
 import { Add, Remove } from '@material-ui/icons';
 
-const Container = styled.div``;
+const Container = styled.div`
+
+`;
 
 const Wrapper = styled.div`
    padding: 50px;
